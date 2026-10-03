@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>巧克力小镇 · 把这一天，留成一座小镇</title>
+ <meta name="description" content="由 19 张实拍照片构成的巧克力小镇空间记忆。可旋转的夜景微缩场景、逐店实拍对照与完整照片档案。空间布局为推定，非测绘模型。">
+ <link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css">
+ <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/"}}</script>
+</head>
+<body>
+ <a class="skip-link" href="#main">跳到小镇展示</a>
+ <header class="topbar">
+  <a class="brand" href="#town" aria-label="巧克力小镇首页"><span class="brand-mark">▥</span><span>巧克力小镇<small>一份可以走近的记忆</small></span></a>
+  <nav aria-label="主导航"><button class="nav active" data-view="town" aria-current="page">小镇全貌</button><button class="nav" data-view="archive">实拍档案 <span>19</span></button><button class="nav" data-view="about">还原手记</button></nav>
+  <div class="date"><i></i> 2026.10.03 <span>／ 秋日留影</span></div>
+ </header>
+ <main id="main">
+  <section id="town" class="view active" aria-label="交互式微缩小镇">
+   <div id="stage" tabindex="0" role="region" aria-label="3D 小镇，拖拽旋转，滚轮缩放，也可使用视角按钮和地点目录"><div id="loading"><span class="loading-orbit"></span><p>正在点亮小镇的橱窗…</p></div><div id="markers"></div><p id="webgl-error" hidden>当前设备无法显示 3D。你仍可以通过「实拍档案」查看全部 19 张照片。</p></div>
+   <div class="intro"><div class="eyebrow"><span></span> 十九张照片 · 一座小镇</div><h1>把这一天，<br>留成一座<span>小镇。</span></h1><p>沿着暖灯，重新走过那些街角。</p><div class="intro-actions"><button id="tour" class="gold-button"><span>▷</span> 自动环绕</button><button id="directory-toggle" class="text-button" aria-expanded="false" aria-controls="directory">地点目录 <span>↗</span></button></div><div class="reconstruction-note"><span class="diamond">◇</span> 空间推定 · 非测绘模型<button id="note-button" aria-label="查看还原范围说明">ⓘ</button></div></div>
+   <div id="directory" hidden><div class="directory-title">在小镇里找一处停留<button id="directory-close" aria-label="关闭地点目录">×</button></div><div id="place-list"></div></div>
+   <div class="view-tools" aria-label="场景控制"><button id="overview" title="还原初始视角" aria-label="还原初始视角"><span>⌂</span></button><button id="aerial" title="俯瞰小镇" aria-label="俯瞰小镇"><span>▱</span></button><span class="tool-divider"></span><button id="zoom-in" title="放大" aria-label="放大">＋</button><button id="zoom-out" title="缩小" aria-label="缩小">−</button><span class="tool-divider"></span><button id="lights" aria-label="切换柔光展示" aria-pressed="false" title="夜景 / 柔光">☼</button><button id="save-view" aria-label="保存当前小镇图片" title="保存当前画面">↓</button></div>
+   <div class="scene-meta"><span class="scene-status"><i></i> 夜景微缩</span><span>拖拽旋转 <b>·</b> 滚轮缩放 <b>·</b> 点击地标看实拍</span></div>
+   <div class="bottom-dock"><div class="dock-heading"><span>从一个街角开始</span><small>原景，始终在这里</small></div><div class="scene-cards"><button class="scene-card" data-place="book"><img src="./photos/15.jpg" alt="书店与饰品店街角"><span><small>01 / 转角</small><strong>书店街角 <b>↗</b></strong></span></button><button class="scene-card" data-place="restaurant"><img src="./photos/10.jpg" alt="餐厅、邮局和面包店"><span><small>02 / 长街</small><strong>一街暖灯 <b>↗</b></strong></span></button><button class="scene-card" data-place="bus"><img src="./photos/11.jpg" alt="红色双层巴士造景"><span><small>03 / 停驻</small><strong>红色巴士 <b>↗</b></strong></span></button><button class="scene-card" data-place="wine"><img src="./photos/16.jpg" alt="可可品酒屋旁的小巷"><span><small>04 / 小巷</small><strong>可可的余韵 <b>↗</b></strong></span></button></div><button id="all-photos" class="archive-link">查看全部实拍 <span>19 张 →</span></button></div>
+   <aside id="detail" hidden aria-label="地点实拍对照"><button id="detail-close" class="close-button" aria-label="关闭地点详情">×</button><div class="detail-label">小镇地标 / 实拍对照</div><h2 id="detail-title"></h2><p id="detail-sign"></p><button id="detail-photo" aria-label="放大实拍照片"><img id="detail-image" alt=""><span>↗ 查看原图</span></button><div class="detail-thumbs" id="detail-thumbs"></div><p id="detail-description"></p><div class="evidence"><span>照片告诉我们的</span><p id="detail-evidence"></p></div><button id="detail-next" class="text-button">下一处地标 →</button></aside>
+  </section>
+  <section id="archive" class="view page-view" hidden aria-labelledby="archive-title"><div class="page-heading"><div><div class="eyebrow">未经补绘的真实记录</div><h1 id="archive-title">这一天的十九个瞬间。</h1><p>所有照片保持原样。点击一张，回到你拍下它的那个街角。</p></div><span class="large-number">19<small>张实拍</small></span></div><div id="filters" role="group" aria-label="照片分类"><button class="filter active" data-filter="all" aria-pressed="true">全部照片 <span>19</span></button><button class="filter" data-filter="street" aria-pressed="false">街道与店铺</button><button class="filter" data-filter="bus" aria-pressed="false">巴士与公告栏</button><button class="filter" data-filter="unlocated" aria-pressed="false">尚未定位的空间</button></div><div id="photo-grid"></div></section>
+  <section id="about" class="view page-view" hidden aria-labelledby="about-title"><div class="page-heading"><div><div class="eyebrow">关于这次空间重构</div><h1 id="about-title">有照片的地方，<br>让记忆有据可依。</h1><p>这不是完整扫描，而是一次以实拍为依据的微缩重构。</p></div><div class="about-seal">19 张实拍<br><span>2026 / 10 / 03</span></div></div><div class="about-grid"><article><span class="chapter">01 — 看得见的</span><h2>从照片里保留下来</h2><p>店名与立面色彩、凸窗与弧形橱窗、蓝紫色上层灯光、暖黄色窗光、复古街灯，以及红色巴士与公告栏。部分橱窗直接引用原照片作为材质。</p><ul><li>餐厅 → 邮局 → 面包店：照片 10</li><li>裁缝店、饰品店、玩具店与书店：照片 14、15</li><li>品酒屋 → 红色橱窗：照片 12、13、16</li><li>巴士、公告栏与餐厅同框：照片 11</li></ul></article><article><span class="chapter">02 — 推定的</span><h2>让片段成为可读的整体</h2><p>街区间的连接方式、街宽、楼高、建筑厚度和背面均为展示性推定。模型中的布局不是实际地图，不能用于导航或测量。</p><p>照片呈现的是室内布景；模型采用开放式微缩舞台，移除了展馆顶棚以便俯瞰。屋面和背面是简化封闭面，不表示照片拍到了真实屋顶。</p><p>展示顺序不是拍摄顺序，模型也不是通过摄影测量或 3D 扫描得到。</p></article><article><span class="chapter">03 — 留白的</span><h2>不替未知的地方编故事</h2><p>月亮展墙与木质楼梯缺少衔接画面，保留在实拍档案中，不强行安置到街道。原文件没有保留 EXIF 定位或拍摄时间，因此不从文件编号猜测路线。</p><p>如果以后补充一段连续走拍视频、简单平面草图或跨街区照片，就能进一步校正相对位置。这里的每一个地标都保留了实拍入口，方便继续修订。</p></article></div><div class="about-footer"><span>原照片未修改 · 全部资源本地加载 · 没有 AI 补图</span><button class="gold-button" id="return-town">回到小镇 ↗</button></div></section>
+ </main>
+ <dialog id="lightbox" aria-label="实拍照片查看器"><div class="lightbox-toolbar"><div><span id="lightbox-index"></span><strong id="lightbox-title"></strong></div><button id="lightbox-close" aria-label="关闭照片查看器">×</button></div><div class="lightbox-body"><button id="photo-prev" aria-label="上一张照片">←</button><img id="lightbox-image" alt=""><button id="photo-next" aria-label="下一张照片">→</button></div><div class="lightbox-caption"><p id="lightbox-caption"></p><a id="original-link" target="_blank" rel="noopener">打开原图 ↗</a></div></dialog>
+ <div id="toast" role="status" aria-live="polite"></div>
+ <script type="module" src="./app.js"></script>
+</body>
+</html>

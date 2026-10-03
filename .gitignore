@@ -1,0 +1,6 @@
+node_modules/
+.preview/
+analysis/contact-sheet.jpg
+.env
+.env.*
+!.env.example
